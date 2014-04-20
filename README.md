@@ -1,6 +1,9 @@
 # Spam Canner
 
-[![Build Status](https://travis-ci.org/AndyWendt/spam-canner.svg?branch=master)](https://travis-ci.org/AndyWendt/spam-canner) [![Coverage Status](https://coveralls.io/repos/AndyWendt/spam-canner/badge.png)](https://coveralls.io/r/AndyWendt/spam-canner)
+[![Build Status](https://travis-ci.org/AndyWendt/spam-canner.svg?branch=master)](https://travis-ci.org/AndyWendt/spam-canner) [![Coverage Status](https://coveralls.io/repos/AndyWendt/spam-canner/badge.png?branch=master)](https://coveralls.io/r/AndyWendt/spam-canner?branch=master)
+
+Extensible Spam Detection Filters.
+
 ## Usage
 
 Filters are located in the `src/Filters` directory.
