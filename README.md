@@ -15,7 +15,7 @@ to the `$filters` array that you pass to `Score()`
 $increase = 1;
 $filters = [
     new \CmdZ\SpamCanner\Filters\BodyInPreviousComment('abcd', $increase, 'abcd'),
-    new \CmdZ\SpamCanner\Filters\Tlds($increase, 'http://test.de', ['de'], new DomainParser())
+    new \CmdZ\SpamCanner\Filters\Tlds($increase, 'http://test.de', ['de'], new \CmdZ\SpamCanner\Utilities\DomainParser())
 ];
 
 $score = new \CmdZ\SpamCanner\Score($filters, new \CmdZ\SpamCanner\Utilities\Utilities());
