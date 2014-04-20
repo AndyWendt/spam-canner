@@ -1,6 +1,6 @@
 # Spam Canner
 
-
+[![Build Status](https://travis-ci.org/AndyWendt/spam-canner.svg?branch=master)](https://travis-ci.org/AndyWendt/spam-canner) [![Coverage Status](https://coveralls.io/repos/AndyWendt/spam-canner/badge.png)](https://coveralls.io/r/AndyWendt/spam-canner)
 ## Usage
 
 Filters are located in the `src/Filters` directory.
