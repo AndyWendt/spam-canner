@@ -1,0 +1,33 @@
+{
+    "name": "cmdz/spam-canner",
+    "description": "Extensible Spam Detection Filters",
+    "keywords": [
+        "spam",
+        "filter",
+        "detection"
+    ],
+    "homepage": "https://github.com/AndyWendt/spam-canner",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andy Wendt",
+            "email": "andy@awendt.com",
+            "homepage": "awendt.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "jeremykendall/php-domain-parser": "1.2.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.*",
+        "mockery/mockery": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "CmdZ\\SpamCanner\\": "src/",
+            "CmdZ\\SpamCanner\\Tests\\": "tests/"
+        }
+    }
+}
