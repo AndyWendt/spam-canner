@@ -3,20 +3,27 @@
 use CmdZ\SpamCanner\Filters\BodyInPreviousComment;
 use CmdZ\SpamCanner\Filters\Tlds;
 use CmdZ\SpamCanner\Score;
-use CmdZ\SpamCanner\Utilities\DomainParser;
-use CmdZ\SpamCanner\Utilities\Utilities;
 
 class ScoreIntegrationTest extends \PHPUnit_Framework_TestCase
 {
 
     public function testIntegrationOfScoreClass()
     {
+        $spamScoreIncrease = 1;
+        $currentCommentBody = 'abcd';
+        $previousCommentBody = 'abcd';
+
+        $testLink = 'http://www.site.de';
+        $spammyTlds = ['de'];
+        $domainParser = new \CmdZ\SpamCanner\Utilities\DomainParser;
+
         $filters = [
-          new BodyInPreviousComment(1, 'abcd', 'abcd'),
-          new Tlds(1, 'http://www.apple.de', ['de'], new DomainParser())
+          new BodyInPreviousComment($spamScoreIncrease, $currentCommentBody, $previousCommentBody),
+          new Tlds($spamScoreIncrease, $testLink, $spammyTlds, $domainParser)
         ];
 
-        $score    = new Score($filters, new Utilities());
+        $utils = new \CmdZ\SpamCanner\Utilities\Utilities;
+        $score    = new Score($filters, $utils);
         $result   = $score->getScore();
         $expected = 2;
 

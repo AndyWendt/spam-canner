@@ -12,15 +12,23 @@ to the `$filters` array that you pass to `Score()`
 
 ```php
 
-$increase = 1;
+$spamScoreIncrease = 1;
+$currentCommentBody = 'abcd';
+$previousCommentBody = 'abcd';
+
+$testLink = 'http://www.site.de';
+$spammyTlds = ['de'];
+$domainParser = new \CmdZ\SpamCanner\Utilities\DomainParser;
+
 $filters = [
-    new \CmdZ\SpamCanner\Filters\BodyInPreviousComment('abcd', $increase, 'abcd'),
-    new \CmdZ\SpamCanner\Filters\Tlds($increase, 'http://test.de', ['de'], new \CmdZ\SpamCanner\Utilities\DomainParser())
+  new BodyInPreviousComment($spamScoreIncrease, $currentCommentBody, $previousCommentBody),
+  new Tlds($spamScoreIncrease, $testLink, $spammyTlds, $domainParser)
 ];
 
-$score = new \CmdZ\SpamCanner\Score($filters, new \CmdZ\SpamCanner\Utilities\Utilities());
-$result = $score->getScore();
-
+$utils = new \CmdZ\SpamCanner\Utilities\Utilities;
+$score    = new Score($filters, $utils);
+$result   = $score->getScore();
+$expected = 2;
 
 ```
 
