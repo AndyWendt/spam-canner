@@ -12,7 +12,7 @@ class ScoreIntegrationTest extends \PHPUnit_Framework_TestCase
     public function testIntegrationOfScoreClass()
     {
         $filters = [
-          new BodyInPreviousComment('abcd', 1, 'abcd'),
+          new BodyInPreviousComment(1, 'abcd', 'abcd'),
           new Tlds(1, 'http://www.apple.de', ['de'], new DomainParser())
         ];
 

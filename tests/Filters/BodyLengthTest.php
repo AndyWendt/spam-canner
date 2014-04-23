@@ -13,7 +13,7 @@ class BodyLengthTest extends \PHPUnit_Framework_TestCase
     {
         $text       = 'asdfasdf';
         $link_count = 22;
-        $bodyLength = new BodyLength($this->decrease, $this->increase, $link_count, $text, $this->off);
+        $bodyLength = new BodyLength($this->increase, $this->decrease, $this->off, $text, $link_count);
         $bodyLength->setScore();
         $result   = $bodyLength->getScore();
         $expected = 0;
@@ -22,7 +22,7 @@ class BodyLengthTest extends \PHPUnit_Framework_TestCase
 
         $text       = 'asdfasdf';
         $link_count = 2;
-        $bodyLength = new BodyLength($this->decrease, $this->increase, $link_count, $text, $this->threshold);
+        $bodyLength = new BodyLength($this->increase, $this->decrease, $this->threshold, $text, $link_count);
         $bodyLength->setScore();
         $result   = $bodyLength->getScore();
         $expected = $this->increase;
@@ -31,7 +31,7 @@ class BodyLengthTest extends \PHPUnit_Framework_TestCase
 
         $text       = 'asdf;as as;ldfj asldf; as;lfd as;ldf';
         $link_count = 2;
-        $bodyLength = new BodyLength($this->decrease, $this->increase, $link_count, $text, $this->threshold);
+        $bodyLength = new BodyLength($this->increase, $this->decrease, $this->threshold, $text, $link_count);
         $bodyLength->setScore();
         $result   = $bodyLength->getScore();
         $expected = 0;
@@ -40,7 +40,7 @@ class BodyLengthTest extends \PHPUnit_Framework_TestCase
 
         $text       = 'as;ldflsjfd a;lsdfj ;laskfj as;lfdj as;lfdj';
         $link_count = 0;
-        $bodyLength = new BodyLength($this->decrease, $this->increase, $link_count, $text, $this->threshold);
+        $bodyLength = new BodyLength($this->increase, $this->decrease, $this->threshold, $text, $link_count);
         $bodyLength->setScore();
         $result   = $bodyLength->getScore();
         $expected = -$this->decrease;

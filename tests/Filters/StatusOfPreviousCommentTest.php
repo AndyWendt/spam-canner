@@ -15,12 +15,7 @@ class StatusOfPreviousCommentTest extends \PHPUnit_Framework_TestCase
         $prevCommentEmail        = 'test';
         $prevCommentFlag         = $this->flag;
         $statusOfPreviousComment = new StatusOfPreviousComment(
-            $currentCommentEmail,
-            $this->decrease,
-            $this->flag,
-            $this->off,
-            $prevCommentEmail,
-            $prevCommentFlag
+          $this->off, $this->decrease, $currentCommentEmail, $prevCommentEmail, $this->flag, $prevCommentFlag
         );
         $expected                = 0;
         $statusOfPreviousComment->setScore();
@@ -32,12 +27,7 @@ class StatusOfPreviousCommentTest extends \PHPUnit_Framework_TestCase
         $prevCommentEmail        = 'test';
         $prevCommentFlag         = $this->flag;
         $statusOfPreviousComment = new StatusOfPreviousComment(
-            $currentCommentEmail,
-            $this->decrease,
-            $this->flag,
-            $this->increase,
-            $prevCommentEmail,
-            $prevCommentFlag
+          $this->increase, $this->decrease, $currentCommentEmail, $prevCommentEmail, $this->flag, $prevCommentFlag
         );
         $expected                = $this->increase;
         $statusOfPreviousComment->setScore();
@@ -49,12 +39,7 @@ class StatusOfPreviousCommentTest extends \PHPUnit_Framework_TestCase
         $prevCommentEmail        = 'noMatch';
         $prevCommentFlag         = $this->flag;
         $statusOfPreviousComment = new StatusOfPreviousComment(
-            $currentCommentEmail,
-            $this->decrease,
-            $this->flag,
-            $this->increase,
-            $prevCommentEmail,
-            $prevCommentFlag
+          $this->increase, $this->decrease, $currentCommentEmail, $prevCommentEmail, $this->flag, $prevCommentFlag
         );
         $expected                = 0;
         $statusOfPreviousComment->setScore();
@@ -66,12 +51,7 @@ class StatusOfPreviousCommentTest extends \PHPUnit_Framework_TestCase
         $prevCommentEmail        = 'test';
         $prevCommentFlag         = 'no match';
         $statusOfPreviousComment = new StatusOfPreviousComment(
-            $currentCommentEmail,
-            $this->decrease,
-            $this->flag,
-            $this->increase,
-            $prevCommentEmail,
-            $prevCommentFlag
+          $this->increase, $this->decrease, $currentCommentEmail, $prevCommentEmail, $this->flag, $prevCommentFlag
         );
         $expected                = -$this->decrease;
         $statusOfPreviousComment->setScore();

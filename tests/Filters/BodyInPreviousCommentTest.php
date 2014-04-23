@@ -11,7 +11,7 @@ class BodyInPreviousCommentTest extends \PHPUnit_Framework_TestCase
     {
         $currentCommentBody = 'abcd';
         $prevCommentBody    = 'abcd';
-        $bodyInPrevious     = new BodyInPreviousComment($currentCommentBody, $this->off, $prevCommentBody);
+        $bodyInPrevious     = new BodyInPreviousComment($this->off, $currentCommentBody, $prevCommentBody);
         $bodyInPrevious->setScore();
         $expected = 0;
         $result   = $bodyInPrevious->getScore();
@@ -20,7 +20,7 @@ class BodyInPreviousCommentTest extends \PHPUnit_Framework_TestCase
 
         $currentCommentBody = 'zywx';
         $prevCommentBody    = 'abcd';
-        $bodyInPrevious     = new BodyInPreviousComment($currentCommentBody, $this->increase, $prevCommentBody);
+        $bodyInPrevious     = new BodyInPreviousComment($this->increase, $currentCommentBody, $prevCommentBody);
         $bodyInPrevious->setScore();
         $expected = 0;
         $result   = $bodyInPrevious->getScore();
@@ -29,7 +29,7 @@ class BodyInPreviousCommentTest extends \PHPUnit_Framework_TestCase
 
         $currentCommentBody = 'abcd';
         $prevCommentBody    = 'abcd';
-        $bodyInPrevious     = new BodyInPreviousComment($currentCommentBody, $this->increase, $prevCommentBody);
+        $bodyInPrevious     = new BodyInPreviousComment($this->increase, $currentCommentBody, $prevCommentBody);
         $expected           = $this->increase;
         $bodyInPrevious->setScore();
         $result  = $bodyInPrevious->getScore();

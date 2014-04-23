@@ -11,7 +11,7 @@ class FirstWordTest extends \PHPUnit_Framework_TestCase
     public function testSetScore()
     {
         $text      = 'cool beans';
-        $firstWord = new FirstWord($this->firstWords, $this->off, $text);
+        $firstWord = new FirstWord($this->off, $text, $this->firstWords);
         $expected  = 0;
         $firstWord->setScore();
         $result  = $firstWord->getScore();
@@ -19,7 +19,7 @@ class FirstWordTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result, $message);
 
         $text      = 'cool beans';
-        $firstWord = new FirstWord($this->firstWords, $this->increase, $text);
+        $firstWord = new FirstWord($this->increase, $text, $this->firstWords);
         $expected  = $this->increase;
         $firstWord->setScore();
         $result  = $firstWord->getScore();
@@ -27,7 +27,7 @@ class FirstWordTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result, $message);
 
         $text      = 'asd;lf as;lfd a;sldf';
-        $firstWord = new FirstWord($this->firstWords, $this->increase, $text);
+        $firstWord = new FirstWord($this->increase, $text, $this->firstWords);
         $expected  = 0;
         $firstWord->setScore();
         $result  = $firstWord->getScore();

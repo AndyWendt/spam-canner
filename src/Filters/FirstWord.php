@@ -6,7 +6,7 @@ class FirstWord extends FilterAbstract
     protected $increase;
     protected $firstWordList;
 
-    public function __construct(array $firstWordList, $increase, $text)
+    public function __construct($increase, $text, array $firstWordList)
     {
         $this->firstWordList = $firstWordList;
         $this->increase      = $increase;

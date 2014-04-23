@@ -6,7 +6,7 @@ class BodyInPreviousComment extends FilterAbstract
     protected $prevCommentBody;
     protected $increase;
 
-    public function __construct($currentCommentBody, $increase, $prevCommentBody)
+    public function __construct($increase, $currentCommentBody, $prevCommentBody)
     {
         $this->currentCommentBody = $currentCommentBody;
         $this->increase           = $increase;

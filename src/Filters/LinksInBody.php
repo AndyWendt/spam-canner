@@ -8,7 +8,7 @@ class LinksInBody extends FilterAbstract
     protected $threshold;
     protected $score;
 
-    public function __construct($decrease, $increase, $linkCount, $threshold)
+    public function __construct($increase, $decrease, $threshold, $linkCount)
     {
         $this->decrease  = $decrease;
         $this->increase  = $increase;

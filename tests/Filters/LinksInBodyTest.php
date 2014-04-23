@@ -15,7 +15,7 @@ class LinksInBodyTest extends \PHPUnit_Framework_TestCase
     public function testSetScore()
     {
         $link_count = 100;
-        $this->lib  = new LinksInBody($this->decrease, $this->increase, $link_count, $this->threshold);
+        $this->lib  = new LinksInBody($this->increase, $this->decrease, $this->threshold, $link_count);
         $this->lib->setScore();
         $result   = $this->lib->getScore();
         $expected = $link_count * $this->increase;
@@ -23,7 +23,7 @@ class LinksInBodyTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result, $message);
 
         $link_count = null;
-        $this->lib  = new LinksInBody($this->decrease, $this->increase, $link_count, $this->threshold);
+        $this->lib  = new LinksInBody($this->increase, $this->decrease, $this->threshold, $link_count);
         $this->lib->setScore();
         $result   = $this->lib->getScore();
         $expected = -$this->decrease;
@@ -31,7 +31,7 @@ class LinksInBodyTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result, $message);
 
         $link_count = 12;
-        $this->lib  = new LinksInBody($this->decrease, $this->increase, $link_count, $this->off);
+        $this->lib  = new LinksInBody($this->increase, $this->decrease, $this->off, $link_count);
         $this->lib->setScore();
         $result   = $this->lib->getScore();
         $expected = 0;

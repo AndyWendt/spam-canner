@@ -12,14 +12,14 @@ class UrlLengthTest extends \PHPUnit_Framework_TestCase
     public function testSetScore()
     {
         $link      = 'http://1234567890123456789012345678901';
-        $urlLength = new UrlLength($this->increase, $link, $this->off);
+        $urlLength = new UrlLength($this->increase, $this->off, $link);
         $urlLength->setScore();
         $result  = $urlLength->getScore();
         $message = 'Should return 0; filter is off.';
         $this->assertEquals(0, $result, $message);
 
         $link      = 'http://1234567890123456789012345678901';
-        $urlLength = new UrlLength($this->increase, $link, $this->threshold);
+        $urlLength = new UrlLength($this->increase, $this->threshold, $link);
         $expected  = $this->increase;
         $urlLength->setScore();
         $result  = $urlLength->getScore();
@@ -27,7 +27,7 @@ class UrlLengthTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result, $message);
 
         $link      = 'http://12345678901234567890123456';
-        $urlLength = new UrlLength($this->increase, $link, $this->threshold);
+        $urlLength = new UrlLength($this->increase, $this->threshold, $link);
         $expected  = 0;
         $urlLength->setScore();
         $result  = $urlLength->getScore();
