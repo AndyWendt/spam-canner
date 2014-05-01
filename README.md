@@ -1,6 +1,6 @@
 # Spam Canner
 
-[![Build Status](https://travis-ci.org/AndyWendt/spam-canner.svg?branch=master)](https://travis-ci.org/AndyWendt/spam-canner) [![Coverage Status](https://coveralls.io/repos/AndyWendt/spam-canner/badge.png?branch=master)](https://coveralls.io/r/AndyWendt/spam-canner?branch=master)
+[![Build Status](https://travis-ci.org/AndyWendt/spam-canner.svg?branch=master)](https://travis-ci.org/AndyWendt/spam-canner) [![Coverage Status](https://coveralls.io/repos/AndyWendt/spam-canner/badge.png?branch=master)](https://coveralls.io/r/AndyWendt/spam-canner?branch=master)[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/AndyWendt/spam-canner/badges/quality-score.png?s=c0bfd2087557a239164fa451f353d52a82a83d80)](https://scrutinizer-ci.com/g/AndyWendt/spam-canner/)
 
 Extensible Spam Detection Filters.
 
