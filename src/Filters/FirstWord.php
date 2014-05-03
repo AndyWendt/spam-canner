@@ -9,8 +9,8 @@ class FirstWord extends FilterAbstract
     public function __construct($increase, $text, array $firstWordList)
     {
         $this->firstWordList = $firstWordList;
-        $this->increase      = $increase;
-        $this->text          = $text;
+        $this->increase = $increase;
+        $this->text = $text;
     }
 
 

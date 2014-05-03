@@ -10,8 +10,8 @@ class LinksInBody extends FilterAbstract
 
     public function __construct($increase, $decrease, $threshold, $linkCount)
     {
-        $this->decrease  = $decrease;
-        $this->increase  = $increase;
+        $this->decrease = $decrease;
+        $this->increase = $increase;
         $this->linkCount = $linkCount;
         $this->threshold = $threshold;
     }

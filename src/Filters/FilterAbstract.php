@@ -9,7 +9,7 @@ abstract class FilterAbstract implements FilterInterface
 
     public function setScore()
     {
-        $score       = $this->calcScore();
+        $score = $this->calcScore();
         $this->score = $score;
     }
 

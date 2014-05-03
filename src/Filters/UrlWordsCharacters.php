@@ -8,8 +8,8 @@ class UrlWordsCharacters extends FilterAbstract
 
     public function __construct($increase, $link, array $wordsCharsArray)
     {
-        $this->increase        = $increase;
-        $this->link            = $link;
+        $this->increase = $increase;
+        $this->link = $link;
         $this->wordsCharsArray = $wordsCharsArray;
     }
 

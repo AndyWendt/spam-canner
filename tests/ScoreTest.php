@@ -14,7 +14,7 @@ class ScoreTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->filterInterface         = Mockery::mock('\CmdZ\SpamCanner\Filters\FilterInterface');
+        $this->filterInterface = Mockery::mock('\CmdZ\SpamCanner\Filters\FilterInterface');
         $this->scoreUtilitiesInterface = Mockery::mock('\CmdZ\SpamCanner\ScoreUtilitiesInterface');
     }
 

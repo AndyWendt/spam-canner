@@ -4,35 +4,47 @@ use CmdZ\SpamCanner\Filters\CheckAuthorNameForLink;
 
 class CheckAuthorNameForLinkTest extends \PHPUnit_Framework_TestCase
 {
+    protected $interface = '\CmdZ\SpamCanner\Filters\FilterInterface';
+    protected $filterClass = '\CmdZ\SpamCanner\Filters\CheckAuthorNameForLink';
     protected $increase = 2;
     protected $off = -1;
 
-    public function testSetScore()
+    public function testImplementsInterface()
     {
-        $name            = '<a href="http://test.com">test</a> <a href="https://test.com">name</a>';
+        $mockedClass = \Mockery::mock($this->filterClass);
+        $this->assertInstanceOf($this->interface, $mockedClass);
+    }
+
+    public function testFilterIsOff()
+    {
+        $name = '<a href="http://test.com">test</a> <a href="https://test.com">name</a>';
         $authorNameCheck = new CheckAuthorNameForLink($this->off, $name);
-        $expected        = 0;
+        $expected = 0;
         $authorNameCheck->setScore();
-        $result  = $authorNameCheck->getScore();
+        $result = $authorNameCheck->getScore();
         $message = 'Should return 0; filter is off.';
         $this->assertEquals($expected, $result, $message);
+    }
 
-        $name            = '<a href="http://test.com">test</a> <a href="https://test.com">name</a>';
+    public function testIncreaseSpamScore()
+    {
+        $name = '<a href="http://test.com">test</a> <a href="https://test.com">name</a>';
         $authorNameCheck = new CheckAuthorNameForLink($this->increase, $name);
-        $expected        = $this->increase * 2;
+        $expected = $this->increase * 2;
         $authorNameCheck->setScore();
-        $result  = $authorNameCheck->getScore();
+        $result = $authorNameCheck->getScore();
         $message = 'Should Return $increase * 2';
         $this->assertEquals($expected, $result, $message);
+    }
 
-        $name            = 'Test Name';
+    public function testNoInfluenceSpamScore()
+    {
+        $name = 'Test Name';
         $authorNameCheck = new CheckAuthorNameForLink($this->increase, $name);
-        $expected        = 0;
+        $expected = 0;
         $authorNameCheck->setScore();
-        $result  = $authorNameCheck->getScore();
+        $result = $authorNameCheck->getScore();
         $message = 'Should return 0';
         $this->assertEquals($expected, $result, $message);
-
-        $this->assertInstanceOf('\CmdZ\SpamCanner\Filters\FilterInterface', $authorNameCheck);
     }
 }

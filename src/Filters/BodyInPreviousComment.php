@@ -9,8 +9,8 @@ class BodyInPreviousComment extends FilterAbstract
     public function __construct($increase, $currentCommentBody, $prevCommentBody)
     {
         $this->currentCommentBody = $currentCommentBody;
-        $this->increase           = $increase;
-        $this->prevCommentBody    = $prevCommentBody;
+        $this->increase = $increase;
+        $this->prevCommentBody = $prevCommentBody;
     }
 
     protected function calcScore()

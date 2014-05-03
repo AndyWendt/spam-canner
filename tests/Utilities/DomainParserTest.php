@@ -18,7 +18,7 @@ class DomainParserTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         parent::setUp(); //
-        $this->pdp      = \Mockery::mock('\Pdp\Parser');
+        $this->pdp = \Mockery::mock('\Pdp\Parser');
         $this->stdClass = new \stdClass();
     }
 
@@ -26,14 +26,14 @@ class DomainParserTest extends \PHPUnit_Framework_TestCase
     {
         $tld = 'com';
 
-        $suffix               = clone $this->stdClass;
+        $suffix = clone $this->stdClass;
         $suffix->publicSuffix = $tld;
 
-        $host       = clone $this->stdClass;
+        $host = clone $this->stdClass;
         $host->host = $suffix;
 
         $this->pdp->shouldReceive('parseUrl')->andReturn($host);
-        $this->url    = 'www.apple.com';
+        $this->url = 'www.apple.com';
         $this->parser = new DomainParser($this->pdp);
         $this->parser->setUrl($this->url);
         $result = $this->parser->getTld();

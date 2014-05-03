@@ -33,9 +33,9 @@ class Utilities implements FilterUtilitiesInterface, ScoreUtilitiesInterface
     public function arrayContainsOnlyInstancesOf($class, array $haystack)
     {
         if (!interface_exists($class) && !class_exists($class)) {
-                throw new \InvalidArgumentException(
-                    'Class does not exist'
-                );
+            throw new \InvalidArgumentException(
+                'Class does not exist'
+            );
         }
         foreach ($haystack as $obj) {
             if ($obj instanceof $class) continue;

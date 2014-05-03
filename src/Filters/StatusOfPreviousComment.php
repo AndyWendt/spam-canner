@@ -10,19 +10,20 @@ class StatusOfPreviousComment extends FilterAbstract
     protected $spamFlag;
 
     public function __construct(
-      $increase,
-      $decrease,
-      $currentCommentEmail,
-      $previousCommentEmail,
-      $spamFlag,
-      $previousCommentFlag
-    ) {
-        $this->currentCommentEmail  = $currentCommentEmail;
-        $this->decrease             = $decrease;
-        $this->spamFlag             = $spamFlag;
-        $this->increase             = $increase;
+        $increase,
+        $decrease,
+        $currentCommentEmail,
+        $previousCommentEmail,
+        $spamFlag,
+        $previousCommentFlag
+    )
+    {
+        $this->currentCommentEmail = $currentCommentEmail;
+        $this->decrease = $decrease;
+        $this->spamFlag = $spamFlag;
+        $this->increase = $increase;
         $this->previousCommentEmail = $previousCommentEmail;
-        $this->previousCommentFlag  = $previousCommentFlag;
+        $this->previousCommentFlag = $previousCommentFlag;
     }
 
     protected function calcScore()

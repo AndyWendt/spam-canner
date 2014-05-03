@@ -12,10 +12,10 @@ class Tlds extends FilterAbstract
 
     public function __construct($increase, $link, array $spammyTldList, DomainParserInterface $parser)
     {
-        $this->increase      = $increase;
-        $this->link          = $link;
+        $this->increase = $increase;
+        $this->link = $link;
         $this->spammyTldList = $spammyTldList;
-        $this->parser        = $parser;
+        $this->parser = $parser;
         $this->parser->setUrl($link);
     }
 
@@ -23,7 +23,7 @@ class Tlds extends FilterAbstract
     protected function calcScore()
     {
         if ($this->increase <= 0) return 0;
-        $tld = $this->parser->getTld($this->link);
+        $tld = $this->parser->getTld();
         if ($tld === false) return 0;
         if (in_array($tld, $this->spammyTldList)) return $this->increase;
         return 0;

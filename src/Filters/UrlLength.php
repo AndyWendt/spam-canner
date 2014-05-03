@@ -8,8 +8,8 @@ class UrlLength extends FilterAbstract
 
     public function __construct($increase, $threshold, $link)
     {
-        $this->increase  = $increase;
-        $this->link      = $link;
+        $this->increase = $increase;
+        $this->link = $link;
         $this->threshold = $threshold;
     }
 

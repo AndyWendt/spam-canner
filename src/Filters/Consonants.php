@@ -8,7 +8,7 @@ class Consonants extends FilterAbstract
     public function __construct($increase, $text)
     {
         $this->increase = $increase;
-        $this->text     = $text;
+        $this->text = $text;
     }
 
     protected function calcScore()

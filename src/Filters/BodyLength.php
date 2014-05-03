@@ -11,10 +11,10 @@ class BodyLength extends FilterAbstract
 
     public function __construct($increase, $decrease, $threshold, $text, $linkCount)
     {
-        $this->decrease  = $decrease;
-        $this->increase  = $increase;
+        $this->decrease = $decrease;
+        $this->increase = $increase;
         $this->linkCount = $linkCount;
-        $this->text      = $text;
+        $this->text = $text;
         $this->threshold = $threshold;
     }
 

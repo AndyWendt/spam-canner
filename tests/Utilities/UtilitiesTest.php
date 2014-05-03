@@ -22,13 +22,13 @@ class UtilitiesTest extends \PHPUnit_Framework_TestCase
 
     public function testFindLinks()
     {
-        $this->utils      = new Utilities();
-        $urls[]           = 'www.apple.com';
-        $urls[]           = 'http://microsoft.com';
+        $this->utils = new Utilities();
+        $urls[] = 'www.apple.com';
+        $urls[] = 'http://microsoft.com';
         $doesNotContain[] = 'me.com';
-        $text             = 'aslfd alskjf asldfj ' . $urls[0] . ' ;lasdfjl . ' . $doesNotContain[0] . 'a;slfd ' .
-          $urls[1] . ' asdflj';
-        $result           = $this->utils->findLinks($text);
+        $text = 'aslfd alskjf asldfj ' . $urls[0] . ' ;lasdfjl . ' . $doesNotContain[0] . 'a;slfd ' .
+            $urls[1] . ' asdflj';
+        $result = $this->utils->findLinks($text);
 
         $this->assertContains($urls[0], $result);
         $this->assertContains($urls[1], $result);
@@ -38,13 +38,13 @@ class UtilitiesTest extends \PHPUnit_Framework_TestCase
     public function testGetClassName()
     {
         $expected = 'stdClass';
-        $sc       = new \stdClass();
-        $result   = $this->utils->getClassName($sc);
+        $sc = new \stdClass();
+        $result = $this->utils->getClassName($sc);
         $this->assertSame($expected, $result);
 
         $expected = 'UtilitiesTest';
-        $ut       = new self();
-        $result   = $this->utils->getClassName($ut);
+        $ut = new self();
+        $result = $this->utils->getClassName($ut);
         $this->assertSame($expected, $result);
     }
 
@@ -55,28 +55,28 @@ class UtilitiesTest extends \PHPUnit_Framework_TestCase
     public function testArrayContainsOnlyInstancesOf()
     {
         $interface = 'SplSubject';
-        $mock      = Mockery::mock($interface);
-        $haystack  = [$mock, $mock];
-        $result    = $this->utils->arrayContainsOnlyInstancesOf($interface, $haystack);
-        $this->assertSame(true, $result);
-
-        $class    = 'stdClass';
-        $mock     = Mockery::mock($class);
+        $mock = Mockery::mock($interface);
         $haystack = [$mock, $mock];
-        $result   = $this->utils->arrayContainsOnlyInstancesOf($class, $haystack);
+        $result = $this->utils->arrayContainsOnlyInstancesOf($interface, $haystack);
         $this->assertSame(true, $result);
 
-        $interface     = 'SplSubject';
+        $class = 'stdClass';
+        $mock = Mockery::mock($class);
+        $haystack = [$mock, $mock];
+        $result = $this->utils->arrayContainsOnlyInstancesOf($class, $haystack);
+        $this->assertSame(true, $result);
+
+        $interface = 'SplSubject';
         $interfaceMock = Mockery::mock($interface);
-        $class         = 'stdClass';
-        $classMock     = Mockery::mock($class);
-        $haystack      = [$classMock, $interfaceMock];
-        $result        = $this->utils->arrayContainsOnlyInstancesOf($class, $haystack);
+        $class = 'stdClass';
+        $classMock = Mockery::mock($class);
+        $haystack = [$classMock, $interfaceMock];
+        $result = $this->utils->arrayContainsOnlyInstancesOf($class, $haystack);
         $this->assertSame(false, $result);
 
         // throw exception
         $exception = 'asdlfj';
-        $haystack  = [$exception, $exception];
+        $haystack = [$exception, $exception];
         $this->utils->arrayContainsOnlyInstancesOf($exception, $haystack);
     }
 }

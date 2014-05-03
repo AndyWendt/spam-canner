@@ -12,8 +12,8 @@ class DomainParser implements DomainParserInterface
 
     public function __construct()
     {
-        $psl       = new PublicSuffixListManager();
-        $pdp       = new Parser($psl->getList());
+        $psl = new PublicSuffixListManager();
+        $pdp = new Parser($psl->getList());
         $this->pdp = $pdp;
     }
 
