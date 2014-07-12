@@ -48,11 +48,41 @@ class UtilitiesTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($expected, $result);
     }
 
+
     /**
+     * @method arrayContainsOnlyInstancesOf()
+     * @test
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage $obj not instance of $class
+     */
+    public function it_throws_if_not_an_instance_of_class()
+    {
+        $interface = 'SplSubject';
+        $interfaceMock = Mockery::mock($interface);
+        $class = 'stdClass';
+        $classMock = Mockery::mock($class);
+        $haystack = [$classMock, $interfaceMock];
+        $this->utils->arrayContainsOnlyInstancesOf($class, $haystack);
+    }
+
+    /**
+     * @method arrayContainsOnlyInstancesOf()
+     * @test
      * @expectedException \InvalidArgumentException
      * @expectedExceptionMessage Class does not exist
      */
-    public function testArrayContainsOnlyInstancesOf()
+    public function it_throws_if_class_doesnt_exits()
+    {
+        $exception = 'asdlfj';
+        $haystack = [$exception, $exception];
+        $this->utils->arrayContainsOnlyInstancesOf($exception, $haystack);
+    }
+
+    /**
+     * @method arrayContainsOnlyInstancesOf()
+     * @test
+     */
+    public function it_returns_true_if_only_instances_of_class()
     {
         $interface = 'SplSubject';
         $mock = Mockery::mock($interface);
@@ -65,18 +95,5 @@ class UtilitiesTest extends \PHPUnit_Framework_TestCase
         $haystack = [$mock, $mock];
         $result = $this->utils->arrayContainsOnlyInstancesOf($class, $haystack);
         $this->assertSame(true, $result);
-
-        $interface = 'SplSubject';
-        $interfaceMock = Mockery::mock($interface);
-        $class = 'stdClass';
-        $classMock = Mockery::mock($class);
-        $haystack = [$classMock, $interfaceMock];
-        $result = $this->utils->arrayContainsOnlyInstancesOf($class, $haystack);
-        $this->assertSame(false, $result);
-
-        // throw exception
-        $exception = 'asdlfj';
-        $haystack = [$exception, $exception];
-        $this->utils->arrayContainsOnlyInstancesOf($exception, $haystack);
     }
 }

@@ -14,8 +14,6 @@ class DomainParserTest extends \PHPUnit_Framework_TestCase
         $tld = $parser->getTld();
         $expected = 'cn';
         $this->assertSame($expected, $tld);
-
-
     }
 
     /**

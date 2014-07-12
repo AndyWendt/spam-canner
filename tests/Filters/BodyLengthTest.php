@@ -11,13 +11,15 @@ class BodyLengthTest extends \PHPUnit_Framework_TestCase
     protected $threshold = 20;
     protected $off = -1;
 
-    public function testImplementsInterface()
+    /** @test */
+    public function it_implements_the_filter_interface()
     {
         $mockedClass = \Mockery::mock($this->filterClass);
         $this->assertInstanceOf($this->interface, $mockedClass);
     }
 
-    public function testFilterShouldBeOff()
+    /** @test */
+    public function it_returns_zero_if_passed_negative_number_as_threshold()
     {
         $text = 'asdfasdf';
         $link_count = 22;
@@ -30,7 +32,8 @@ class BodyLengthTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result, $message);
     }
 
-    public function testIncreaseSpamScore()
+    /** @test */
+    public function it_increases_spam_score_if_text_is_too_short()
     {
         $text = 'asdfasdf';
         $link_count = 2;
@@ -43,7 +46,8 @@ class BodyLengthTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result, $message);
     }
 
-    public function testNoInfluenceSpamScore()
+    /** @test */
+    public function it_doesnt_influence_spam_score_if_links_are_present_and_string_is_long_enough()
     {
         $text = 'asdf;as as;ldfj asldf; as;lfd as;ldf';
         $link_count = 2;
@@ -56,7 +60,8 @@ class BodyLengthTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result, $message);
     }
 
-    public function testDecreaseSpamScore()
+    /** @test */
+    public function it_decreases_score_if_there_are_no_links_and_string_is_long_enough()
     {
         $text = 'as;ldflsjfd a;lsdfj ;laskfj as;lfdj as;lfdj';
         $link_count = 0;

@@ -39,7 +39,9 @@ class Utilities implements FilterUtilitiesInterface, ScoreUtilitiesInterface
         }
         foreach ($haystack as $obj) {
             if ($obj instanceof $class) continue;
-            return false;
+            throw new \InvalidArgumentException(
+                '$obj not instance of $class'
+            );
         }
         return true;
     }
