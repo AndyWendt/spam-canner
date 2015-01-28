@@ -1,6 +1,6 @@
 {
     "name": "cmdz/spam-canner",
-    "description": "Extensible Spam Detection Filters",
+    "description": "Extensible Spam Detection Filters based on snook.ca post",
     "keywords": [
         "spam",
         "filter",
