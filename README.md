@@ -4,6 +4,12 @@
 
 Extensible Spam Detection Filters based on this [snook.ca post](http://snook.ca/archives/other/effective_blog_comment_spam_blocker)
 
+## Installation
+
+Available on [Packagist](https://packagist.org/packages/cmdz/spam-canner).  Autoloading is PSR-4 compatible.
+
+`composer require cmdz/spam-canner`
+
 ## Usage
 
 Filters are located in the `src/Filters` directory.
